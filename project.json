@@ -1,0 +1,23 @@
+{
+  "slug": "recallo",
+  "name": "Recallo",
+  "category": "Education",
+  "accent": "#0b7285",
+  "tagline": "Spaced-repetition flashcards for students and language learners",
+  "description": "Recallo is for students and language learners who want to remember what they study without planning their own review schedule. It works out which cards are due each day with the SM-2 algorithm and shows exactly how long each answer pushes a card away.",
+  "scope": [
+    "Nested decks with daily limits and four card types",
+    "SM-2 study sessions with undo and a practice mode",
+    "Card browser, statistics and file import"
+  ],
+  "features": [
+    "SM-2 scheduling with learning steps, relearning after lapses and leech detection, with the next interval shown on every grade button",
+    "Basic, reversible, cloze deletion and typed-answer cards, with typed answers forgiving case, accents, articles and small typos",
+    "Keyboard study: Space to flip, 1-4 to grade, U to undo, plus a practice mode that never touches scheduling",
+    "New and review limits per deck that also cap every subdeck beneath them",
+    "Browser with search, filters and bulk tag, move, suspend and delete, all with undo",
+    "Review heatmap, retention rate, 30-day forecast and interval distribution as hand-built SVG charts, plus CSV/TSV import with column mapping and JSON backup"
+  ],
+  "stack": ["JavaScript", "SVG", "HTML", "CSS", "localStorage"],
+  "engineering": "The seed collection is produced by replaying months of simulated answers through the same pure SM-2 scheduler the study screen uses, so the intervals, ease factors and statistics on first load come from the real algorithm rather than invented numbers."
+}

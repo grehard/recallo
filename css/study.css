@@ -1,0 +1,140 @@
+/* The study screen: quiet background, large type, nothing competing with the card. */
+.study {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--surface);
+}
+.study-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 8px 14px;
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+.study-deck {
+  min-width: 0;
+  max-width: 34vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.study-counts {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.practice-badge {
+  padding: 1px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.study-remaining { color: var(--ink-2); font-weight: 500; }
+
+.study-stage {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  padding: 7vh 24px 32px;
+  outline: none;
+}
+.study-card { width: 100%; max-width: 760px; text-align: center; }
+
+.face {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  letter-spacing: -0.01em;
+}
+.face-question { font-size: clamp(25px, 3.2vw, 36px); line-height: 1.35; font-weight: 500; }
+.face-answer { font-size: clamp(23px, 2.8vw, 32px); line-height: 1.4; color: var(--ink); }
+.face-question code, .face-answer code { padding: 0.04em 0.25em; font-size: 0.86em; }
+.face-rule { width: 56px; margin: 28px auto; border: 0; border-top: 1px solid var(--line-strong); }
+.face-extra { margin-top: 24px; color: var(--ink-2); font-size: 18px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.study .cloze-hidden { font-weight: 600; }
+
+.typed-form { margin-top: 28px; }
+.typed-input[type="text"] {
+  max-width: 460px;
+  min-height: 52px;
+  padding: 10px 14px;
+  font-size: 22px;
+  text-align: center;
+}
+.typed-report { margin-bottom: 18px; }
+.typed-verdict { font-size: 15px; font-weight: 600; }
+.typed-exact .typed-verdict, .typed-forgiving .typed-verdict { color: var(--count-review); }
+.typed-close .typed-verdict { color: var(--count-learn); }
+.typed-wrong .typed-verdict { color: var(--danger); }
+.typed-diff { margin-top: 6px; font-size: 20px; font-family: var(--mono); overflow-wrap: anywhere; }
+.diff-same { color: var(--ink-2); }
+.diff-extra { color: var(--danger); text-decoration: line-through; }
+.diff-missing { color: var(--count-review); text-decoration: underline; }
+
+.study-actions {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 14px 16px clamp(22px, 12vh, 96px);
+  background: var(--surface);
+}
+.btn-show { min-height: 52px; width: 100%; max-width: 420px; font-size: 16px; gap: 10px; }
+.grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 620px; }
+.grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1px;
+  min-height: 72px;
+  padding: 8px 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.grade:hover { background: var(--surface-2); }
+.grade-next { color: var(--ink-2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.grade-name { font-size: 15.5px; font-weight: 600; }
+.grade kbd { margin-top: 2px; }
+.grade-1 .grade-name { color: var(--danger); }
+.grade-3 .grade-name { color: var(--count-review); }
+.grade-4 .grade-name { color: var(--accent); }
+.grade.is-suggested { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+
+.study-finished { align-items: flex-start; }
+.finished-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 460px;
+  text-align: center;
+}
+.finished-card p { color: var(--ink-2); font-size: 15px; }
+.finished-card .button-row { justify-content: center; margin-top: 6px; }
+.finished-stats { display: flex; gap: 32px; margin: 6px 0; }
+.finished-stats dt { color: var(--ink-3); font-size: 12.5px; }
+.finished-stats dd { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 720px) {
+  .hide-narrow { display: none; }
+  .study-top { flex-wrap: wrap; gap: 6px 8px; padding: 6px 8px; }
+  .study-deck { max-width: 42vw; }
+  .study-stage { padding: 4vh 16px 20px; }
+  .grades { gap: 6px; }
+  .grade { min-height: 64px; }
+  .study-actions { padding-bottom: 20px; }
+  .grade kbd { display: none; }
+  .practice-badge { order: 3; }
+  .btn-show kbd { display: none; }
+}
